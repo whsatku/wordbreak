@@ -1,6 +1,7 @@
 package th.in.whs.thaisplit.engine;
 
 import th.in.whs.thaisplit.model.Letter;
+import th.in.whs.thaisplit.model.TextStream;
 import th.in.whs.thaisplit.rules.stage1.FinalVowel;
 import th.in.whs.thaisplit.rules.stage1.FloatingVowel;
 import th.in.whs.thaisplit.rules.stage1.PrefixVowel;
@@ -11,24 +12,18 @@ import java.util.List;
 public class RuleBasedWordBreaker implements WordBreaker {
 
     protected void stage1(String input){
-        RuleEvaluator<String, Letter> evaluator = new RuleEvaluator<>();
+        RuleEvaluator<Letter, Letter> evaluator = new RuleEvaluator<>();
         evaluator.addRule(new PrefixVowel());
         evaluator.addRule(new FloatingVowel());
         evaluator.addRule(new Syllable());
         evaluator.addRule(new FinalVowel());
-        for(int i = 0, j = input.length(); i < j; i++){
-            String letter = input.substring(i, i+1);
-            Letter result = evaluator.evaluate(letter);
-//            System.out.print(letter);
-            if(result != null) System.out.println(result);
-            if(result != null &&
-                    (result.getType() == Letter.TYPE.FINAL_CONSONANT || result.getType() == Letter.TYPE.FINAL_VOWEL)
-            ){
-                System.out.println();
-            }
-            if(letter.equals(" ")){
-                System.out.println();
-            }
+        TextStream stream = new TextStream(input);
+        for(Letter letter : stream){
+            evaluator.evaluate(letter);
+        }
+
+        for(Letter letter : stream){
+            System.out.println(letter);
         }
     }
 

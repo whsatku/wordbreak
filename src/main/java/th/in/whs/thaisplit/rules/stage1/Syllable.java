@@ -2,19 +2,22 @@ package th.in.whs.thaisplit.rules.stage1;
 
 import th.in.whs.thaisplit.engine.Rule;
 import th.in.whs.thaisplit.model.Letter;
+import th.in.whs.thaisplit.model.TextStream;
 
-public class Syllable implements Rule<String, Letter> {
+public class Syllable implements Rule<Letter, Letter> {
 
     private String valid = "่้๊๋";
 
     @Override
-    public boolean match(String input) {
+    public boolean match(Letter input) {
         return valid.contains(input);
     }
 
     @Override
-    public Letter activate(String input) {
-        return new Letter(input, Letter.TYPE.SYLLABLE);
+    public Letter activate(Letter input) {
+        input.setType(Letter.TYPE.SYLLABLE);
+
+        return input;
     }
 }
 

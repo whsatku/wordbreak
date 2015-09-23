@@ -3,19 +3,18 @@ package th.in.whs.thaisplit.rules.stage1;
 import th.in.whs.thaisplit.engine.Rule;
 import th.in.whs.thaisplit.model.Letter;
 
-public class PrefixVowel implements Rule<Letter, Letter> {
-
-    private String valid = "เแโใไ";
+public class PrefixConsonant implements Rule<Letter, Letter> {
 
     @Override
     public boolean match(Letter input) {
-        return valid.contains(input);
+        return false;
     }
 
     @Override
     public Letter activate(Letter input) {
-        input.setType(Letter.TYPE.PREFIX_VOWEL);
+        input.setType(Letter.TYPE.PREFIX_CONSONANT);
 
         return input;
     }
 }
+

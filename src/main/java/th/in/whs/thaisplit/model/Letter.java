@@ -1,6 +1,7 @@
 package th.in.whs.thaisplit.model;
 
 public class Letter implements CharSequence {
+
     public enum TYPE {
         PREFIX_VOWEL, // สระต้น
         PREFIX_CONSONANT, // อักษรนำ
@@ -14,6 +15,7 @@ public class Letter implements CharSequence {
 
     private String letter;
     private TYPE type = null;
+    private TextStream parent = null;
 
     public Letter(String letter) {
         this.letter = letter;
@@ -22,6 +24,11 @@ public class Letter implements CharSequence {
     public Letter(String letter, TYPE type) {
         this.letter = letter;
         this.type = type;
+    }
+
+    public Letter(TextStream textStream, String letter) {
+        this(letter);
+        parent = textStream;
     }
 
     @Override
@@ -67,5 +74,13 @@ public class Letter implements CharSequence {
 
     public void setType(TYPE type) {
         this.type = type;
+    }
+
+    public Letter getNext(){
+        return parent.getNext(this);
+    }
+
+    public Letter getPrevious(){
+        return parent.getPrevious(this);
     }
 }
