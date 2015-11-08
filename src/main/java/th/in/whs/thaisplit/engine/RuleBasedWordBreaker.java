@@ -2,10 +2,7 @@ package th.in.whs.thaisplit.engine;
 
 import th.in.whs.thaisplit.model.Letter;
 import th.in.whs.thaisplit.model.TextStream;
-import th.in.whs.thaisplit.rules.stage1.FinalVowel;
-import th.in.whs.thaisplit.rules.stage1.FloatingVowel;
-import th.in.whs.thaisplit.rules.stage1.PrefixVowel;
-import th.in.whs.thaisplit.rules.stage1.Syllable;
+import th.in.whs.thaisplit.rules.stage1.*;
 
 import java.util.List;
 
@@ -16,6 +13,8 @@ public class RuleBasedWordBreaker implements WordBreaker {
         evaluator.addRule(new PrefixVowel());
         evaluator.addRule(new FloatingVowel());
         evaluator.addRule(new Syllable());
+        evaluator.addRule(new FinalConsonant());
+        evaluator.addRule(new SuffixLetterFromVowel());
         evaluator.addRule(new FinalVowel());
         TextStream stream = new TextStream(input);
         for(Letter letter : stream){
@@ -25,6 +24,19 @@ public class RuleBasedWordBreaker implements WordBreaker {
         for(Letter letter : stream){
             System.out.println(letter);
         }
+
+//        for(Letter letter : stream){
+//            System.out.print(letter.getLetter());
+//            if(letter.getType() == null){
+//                continue;
+//            }
+//            switch(letter.getType()){
+//                case FINAL_CONSONANT: case FINAL_VOWEL:
+//                    System.out.println();
+//                    break;
+//                default:
+//            }
+//        }
     }
 
     @Override

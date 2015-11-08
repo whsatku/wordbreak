@@ -16,6 +16,7 @@ public class Letter implements CharSequence {
     private String letter;
     private TYPE type = null;
     private TextStream parent = null;
+    private boolean flippedPreviousToConsonant = false;
 
     public Letter(String letter) {
         this.letter = letter;
@@ -54,7 +55,7 @@ public class Letter implements CharSequence {
                 displayLetter = "อ" + letter;
             }
 
-            return String.format("%s [%s]", displayLetter, type.toString());
+            return String.format("%s [%s%s]", displayLetter, type.toString(), isFlippedPreviousToConsonant() ? "!" : "");
         }else{
             return letter;
         }
@@ -82,5 +83,13 @@ public class Letter implements CharSequence {
 
     public Letter getPrevious(){
         return parent.getPrevious(this);
+    }
+
+    public boolean isFlippedPreviousToConsonant() {
+        return flippedPreviousToConsonant;
+    }
+
+    public void setFlippedPreviousToConsonant(boolean flippedPreviousToConsonant) {
+        this.flippedPreviousToConsonant = flippedPreviousToConsonant;
     }
 }
