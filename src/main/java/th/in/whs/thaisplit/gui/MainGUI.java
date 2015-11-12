@@ -1,5 +1,6 @@
 package th.in.whs.thaisplit.gui;
 
+import th.in.whs.thaisplit.engine.DictionaryWordBreaker;
 import th.in.whs.thaisplit.engine.JavaWordBreaker;
 import th.in.whs.thaisplit.engine.WordBreaker;
 
@@ -24,7 +25,7 @@ public class MainGUI extends JFrame {
 
     private void compute() {
         String text = input.getText();
-        WordBreaker breaker = new JavaWordBreaker();
+        WordBreaker breaker = new DictionaryWordBreaker();
         List<String> output = breaker.run(text);
 
         this.output.setText(output.stream().collect(Collectors.joining(" / ")));
