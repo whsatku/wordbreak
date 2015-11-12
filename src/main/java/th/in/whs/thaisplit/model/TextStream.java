@@ -34,7 +34,7 @@ public class TextStream implements CharSequence, Iterable<Letter> {
         if(index == -1){
             throw new ArrayIndexOutOfBoundsException("token is not in list");
         }
-        if(index == tokens.size()){
+        if(index == tokens.size() - 1){
             return null;
         }
         return tokens.get(index + 1);

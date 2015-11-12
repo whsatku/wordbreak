@@ -1,16 +1,10 @@
 package th.in.whs.thaisplit.gui;
 
-import th.in.whs.thaisplit.engine.DictionaryWordBreaker;
-import th.in.whs.thaisplit.engine.JavaWordBreaker;
-import th.in.whs.thaisplit.engine.WordBreaker;
+import th.in.whs.thaisplit.wordbreak.DictionaryWordBreaker;
+import th.in.whs.thaisplit.wordbreak.WordBreaker;
 
 import javax.swing.*;
-import java.awt.*;
-import java.text.BreakIterator;
-import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class MainGUI extends JFrame {

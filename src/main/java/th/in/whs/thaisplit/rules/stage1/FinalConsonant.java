@@ -9,22 +9,26 @@ public class FinalConsonant implements Rule<Letter, Letter> {
 
     @Override
     public boolean match(Letter input) {
-        return input.getType() == null && valid.contains(input);
+        boolean allowedNext = false;
+        Letter next = input.getNext();
+        if (next == null) {
+            allowedNext = true;
+        }else if (next.getType() == null){
+            allowedNext = false;
+        }else{
+            switch(next.getType()){
+                case FINAL_VOWEL:
+                    allowedNext = true;
+                    break;
+                default:
+            }
+        }
+        return input.getType() == null && valid.contains(input) && allowedNext;
     }
 
     @Override
     public Letter activate(Letter input) {
         input.setType(Letter.TYPE.FINAL_CONSONANT);
-
-        Letter previous = input.getPrevious();
-        while(previous.getType() == Letter.TYPE.SYLLABLE || previous.getType() == Letter.TYPE.FLOATING_VOWEL){
-            previous = previous.getPrevious();
-        }
-
-        if(!previous.isFlippedPreviousToConsonant() && previous.getType() == Letter.TYPE.FINAL_CONSONANT){
-            previous.setType(Letter.TYPE.CONSONANT);
-            input.setFlippedPreviousToConsonant(true);
-        }
 
         return input;
     }

@@ -1,4 +1,4 @@
-package th.in.whs.thaisplit.engine;
+package th.in.whs.thaisplit.wordbreak;
 
 import java.io.File;
 import java.io.FileNotFoundException;

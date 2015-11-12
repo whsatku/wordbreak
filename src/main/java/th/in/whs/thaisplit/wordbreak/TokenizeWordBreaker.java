@@ -1,4 +1,4 @@
-package th.in.whs.thaisplit.engine;
+package th.in.whs.thaisplit.wordbreak;
 
 import java.util.Iterator;
 import java.util.LinkedList;

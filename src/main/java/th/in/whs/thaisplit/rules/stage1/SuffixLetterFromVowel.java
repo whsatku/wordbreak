@@ -17,6 +17,9 @@ public class SuffixLetterFromVowel implements Rule<Letter, Letter> {
             return false;
         }
         Letter previous = input.getPrevious();
+        if(previous == null){
+            return false;
+        }
         if(previous.getType() == Letter.TYPE.SYLLABLE){
             previous = previous.getPrevious();
         }
