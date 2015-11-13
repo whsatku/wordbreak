@@ -1,13 +1,14 @@
 package th.in.whs.thaisplit.wordbreak;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import jdk.internal.util.xml.impl.Input;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.Scanner;
 
 public class DictionaryWordBreaker extends TokenizeWordBreaker {
-
-    private File dictionary = new File("dict.txt");
 
     @Override
     public Iterator<String> iterator() {
@@ -18,12 +19,12 @@ public class DictionaryWordBreaker extends TokenizeWordBreaker {
 
         private String input = getInput();
 
+        private InputStream getDictionary(){
+            return getClass().getResourceAsStream("dict.txt");
+        }
+
         private Scanner getScanner(){
-            try {
-                return new Scanner(dictionary);
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException("Dictionary not found");
-            }
+            return new Scanner(getDictionary());
         }
 
         @Override
