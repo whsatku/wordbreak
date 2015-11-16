@@ -1,15 +1,11 @@
 package th.in.whs.thaisplit.model;
 
-import java.lang.reflect.Array;
-import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class TextStream implements CharSequence, Iterable<Letter> {
     private List<Letter> tokens;
-    private int created = 0;
 
     public TextStream(String input){
         tokens = new ArrayList<>(input.length());
@@ -42,12 +38,24 @@ public class TextStream implements CharSequence, Iterable<Letter> {
 
     @Override
     public String toString() {
-        return tokens.stream().collect(Collectors.joining(""));
+        StringBuilder sb = new StringBuilder();
+
+        for(Letter token : tokens){
+            sb.append(token.toString());
+        }
+
+        return sb.toString();
     }
 
     @Override
     public int length() {
-        return tokens.stream().mapToInt(x -> x.length()).sum();
+        int sum = 0;
+
+        for(Letter token : tokens){
+            sum += token.length();
+        }
+
+        return sum;
     }
 
     @Override

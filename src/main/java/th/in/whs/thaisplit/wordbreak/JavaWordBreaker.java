@@ -46,6 +46,10 @@ public class JavaWordBreaker extends TokenizeWordBreaker {
             return output;
         }
 
+        @Override
+        public void remove() {
+        }
+
         private void checkHasNext(){
             if(next ==  BreakIterator.DONE){
                 hasNext = false;

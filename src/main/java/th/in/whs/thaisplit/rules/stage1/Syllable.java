@@ -2,7 +2,6 @@ package th.in.whs.thaisplit.rules.stage1;
 
 import th.in.whs.thaisplit.engine.Rule;
 import th.in.whs.thaisplit.model.Letter;
-import th.in.whs.thaisplit.model.TextStream;
 
 public class Syllable implements Rule<Letter, Letter> {
 
