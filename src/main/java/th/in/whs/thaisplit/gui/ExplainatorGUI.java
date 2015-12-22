@@ -40,6 +40,7 @@ public class ExplainatorGUI extends JFrame {
         colorMap.put(Letter.TYPE.SYLLABLE, Color.BLUE);
         colorMap.put(Letter.TYPE.FINAL_CONSONANT, Color.MAGENTA);
         colorMap.put(Letter.TYPE.FINAL_VOWEL, Color.ORANGE);
+        colorMap.put(Letter.TYPE.VOWEL, Color.GRAY);
     }
 
     private void onInputAction() {

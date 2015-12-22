@@ -3,9 +3,12 @@ package th.in.whs.thaisplit.rules.stage1;
 import th.in.whs.thaisplit.engine.Rule;
 import th.in.whs.thaisplit.model.Letter;
 
-public class Syllable implements Rule<Letter, Letter> {
+/**
+ * Created by Nut on 12/22/2015 AD.
+ */
+public class Vowel implements Rule<Letter, Letter> {
 
-    private String valid = "่้๊๋";
+    private String valid = "ะำๅเแโใิีึืุูไะา";
 
     @Override
     public boolean match(Letter input) {
@@ -14,11 +17,9 @@ public class Syllable implements Rule<Letter, Letter> {
 
     @Override
     public Letter activate(Letter input) {
-        input.setType(Letter.TYPE.SYLLABLE);
-        input.getPrevious().setType(Letter.TYPE.CONSONANT);
+        input.setType(Letter.TYPE.VOWEL);
 
         return input;
     }
+
 }
-
-

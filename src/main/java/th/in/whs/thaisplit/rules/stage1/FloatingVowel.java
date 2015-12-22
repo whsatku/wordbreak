@@ -9,6 +9,11 @@ public class FloatingVowel implements Rule<Letter, Letter> {
 
     @Override
     public boolean match(Letter input) {
+        if (input.getLetter().equals("ั")){
+            if (input.getNext() != null){
+                return true;
+            }
+        }
         return valid.contains(input);
     }
 

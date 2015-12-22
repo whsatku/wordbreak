@@ -7,6 +7,7 @@ public class Letter implements CharSequence {
         PREFIX_CONSONANT, // อักษรนำ
         CONSONANT, // พยัญชนะต้น
         FLOATING_VOWEL,
+        VOWEL, //สระ
         SYLLABLE, // วรรณยุกต์
         FINAL_CONSONANT, // ตัวสะกด
         FINAL_VOWEL
