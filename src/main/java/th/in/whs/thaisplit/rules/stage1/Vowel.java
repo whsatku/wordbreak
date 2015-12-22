@@ -8,17 +8,23 @@ import th.in.whs.thaisplit.model.Letter;
  */
 public class Vowel implements Rule<Letter, Letter> {
 
-    private String valid = "ะำๅเแโใิีึืุูไะา";
+    private String valid = "ระำๅเแโใิีึืุูไะา";
 
     @Override
     public boolean match(Letter input) {
+        if(input.getLetter().equals("ร")){
+            return input.getNext().getLetter().equals("ร");
+        }
         return valid.contains(input);
     }
 
     @Override
     public Letter activate(Letter input) {
         input.setType(Letter.TYPE.VOWEL);
-
+        Letter next = input.getNext();
+        if(input.getLetter().equals("ร") && next.getLetter().equals("ร")){
+            input.getNext().setType(Letter.TYPE.VOWEL);
+        }
         return input;
     }
 
