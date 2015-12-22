@@ -13,7 +13,10 @@ public class ClusterConsonant implements Rule<Letter, Letter> {
 
     @Override
     public boolean match(Letter input) {
-        if(input.getPrevious() == null || input.getType() == Letter.TYPE.VOWEL){ // case รร
+        Letter previous = input.getPrevious();
+        if(previous == null ||
+                previous.getType() == Letter.TYPE.VOWEL ||
+                previous.getType() == Letter.TYPE.PREFIX_VOWEL){ // case รร
             return false;
         }
         Letter next = input.getNext();

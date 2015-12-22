@@ -26,6 +26,7 @@ public class Vowel implements Rule<Letter, Letter> {
         Letter next = input.getNext();
         if(input.getLetter().equals("ร") && next.getLetter().equals("ร")){
             input.getNext().setType(Letter.TYPE.VOWEL);
+            input.getPrevious().setType(Letter.TYPE.CONSONANT);
         }
         return input;
     }

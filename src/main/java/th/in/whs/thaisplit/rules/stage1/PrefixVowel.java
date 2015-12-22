@@ -15,6 +15,9 @@ public class PrefixVowel implements Rule<Letter, Letter> {
     @Override
     public Letter activate(Letter input) {
         input.setType(Letter.TYPE.PREFIX_VOWEL);
+        if(input.getNext().getType() != Letter.TYPE.PREFIX_CONSONANT){
+            input.getNext().setType(Letter.TYPE.CONSONANT);
+        }
 
         return input;
     }
