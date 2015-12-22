@@ -9,8 +9,8 @@ public class FloatingVowel implements Rule<Letter, Letter> {
 
     @Override
     public boolean match(Letter input) {
-        if (input.getLetter().equals("ั")){
-            if (input.getNext() != null){
+        if(input.getLetter().equals("ั")){
+            if(input.getNext() != null){
                 return true;
             }
         }
@@ -20,7 +20,9 @@ public class FloatingVowel implements Rule<Letter, Letter> {
     @Override
     public Letter activate(Letter input) {
         input.setType(Letter.TYPE.FLOATING_VOWEL);
-        input.getPrevious().setType(Letter.TYPE.CONSONANT);
+        if(input.getPrevious().getType() == null){
+            input.getPrevious().setType(Letter.TYPE.CONSONANT);
+        }
 
         return input;
     }

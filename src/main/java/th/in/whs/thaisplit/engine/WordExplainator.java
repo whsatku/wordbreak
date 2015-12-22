@@ -16,10 +16,14 @@ public class WordExplainator {
         evaluator.addRule(new SuffixLetterFromVowel());
         evaluator.addRule(new FinalVowel());
         evaluator.addRule(new Vowel());
+        evaluator.addRule(new ClusterConsonant());
     }
 
     public TextStream explain(String input){
         TextStream stream = new TextStream(input);
+        for(Letter letter : stream){
+            evaluator.evaluate(letter);
+        }
         for(Letter letter : stream){
             evaluator.evaluate(letter);
         }

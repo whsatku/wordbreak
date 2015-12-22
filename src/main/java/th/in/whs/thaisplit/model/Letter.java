@@ -5,6 +5,7 @@ public class Letter implements CharSequence {
     public enum TYPE {
         PREFIX_VOWEL, // สระต้น
         PREFIX_CONSONANT, // อักษรนำ
+        CLUSTER_CONSONANT, //อักษรควบ
         CONSONANT, // พยัญชนะต้น
         FLOATING_VOWEL,
         VOWEL, //สระ

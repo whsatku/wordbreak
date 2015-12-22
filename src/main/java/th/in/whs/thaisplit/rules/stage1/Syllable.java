@@ -15,7 +15,9 @@ public class Syllable implements Rule<Letter, Letter> {
     @Override
     public Letter activate(Letter input) {
         input.setType(Letter.TYPE.SYLLABLE);
-        input.getPrevious().setType(Letter.TYPE.CONSONANT);
+        if(input.getPrevious().getType() == null){
+            input.getPrevious().setType(Letter.TYPE.CONSONANT);
+        }
 
         return input;
     }
