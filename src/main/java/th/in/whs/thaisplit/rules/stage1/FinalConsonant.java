@@ -32,8 +32,10 @@ public class FinalConsonant implements Rule<Letter, Letter> {
     @Override
     public Letter activate(Letter input) {
         input.setType(Letter.TYPE.FINAL_CONSONANT);
-        if(input.getPrevious().getType() == null){
-            input.getPrevious().setType(Letter.TYPE.CONSONANT);
+        if(input.getPrevious() != null) {
+            if (input.getPrevious().getType() == null) {
+                input.getPrevious().setType(Letter.TYPE.CONSONANT);
+            }
         }
 
         return input;
