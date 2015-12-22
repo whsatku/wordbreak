@@ -39,9 +39,7 @@ public class WordExplainator {
         breaker.setInput(input);
         for(String word : breaker){
             TextStream explaination = explainer.explain(word);
-            for(Letter ch : explaination){
-                System.out.println(ch);
-            }
+            System.out.println(word);
             System.out.println("========================");
         }
     }

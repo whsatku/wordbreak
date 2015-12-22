@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Build-Jdk: 1.8.0_40
+Built-By: Mistral
+Created-By: IntelliJ IDEA
+Main-Class: th.in.whs.thaisplit.gui.ExplainatorGUI
+
