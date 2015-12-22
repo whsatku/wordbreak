@@ -17,6 +17,7 @@ public class WordExplainator {
         evaluator.addRule(new FinalVowel());
         evaluator.addRule(new Vowel());
         evaluator.addRule(new ClusterConsonant());
+        evaluator.addRule(new PrefixConsonant());
     }
 
     public TextStream explain(String input){

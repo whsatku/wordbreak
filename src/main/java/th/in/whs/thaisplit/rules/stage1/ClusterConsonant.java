@@ -15,11 +15,12 @@ public class ClusterConsonant implements Rule<Letter, Letter> {
     public boolean match(Letter input) {
         Letter next = input.getNext();
         if(valid.contains(input.getLetter()) && next != null){
-            if(next.getType() == Letter.TYPE.SYLLABLE){
+            if(next.getType() == Letter.TYPE.SYLLABLE && next.getNext() != null){
                 next = next.getNext();
             }
 
             return next.getType() == Letter.TYPE.VOWEL ||
+                    next.getType() == Letter.TYPE.FINAL_VOWEL ||
                     next.getType() == Letter.TYPE.FINAL_CONSONANT;
         }
 
