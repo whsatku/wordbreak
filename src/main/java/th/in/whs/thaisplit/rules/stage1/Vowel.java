@@ -13,7 +13,9 @@ public class Vowel implements Rule<Letter, Letter> {
     @Override
     public boolean match(Letter input) {
         if(input.getLetter().equals("ร")){
-            return input.getNext().getLetter().equals("ร");
+            if(input.getNext() != null) {
+                return input.getNext().getLetter().equals("ร");
+            }
         }
         return valid.contains(input);
     }

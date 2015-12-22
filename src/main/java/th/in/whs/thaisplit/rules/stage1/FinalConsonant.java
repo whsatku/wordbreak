@@ -20,6 +20,9 @@ public class FinalConsonant implements Rule<Letter, Letter> {
                 case FINAL_VOWEL:
                     allowedNext = true;
                     break;
+                case PREFIX_VOWEL:
+                    allowedNext = true;
+                    break;
                 default:
             }
         }

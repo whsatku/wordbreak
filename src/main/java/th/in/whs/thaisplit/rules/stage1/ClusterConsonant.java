@@ -23,7 +23,6 @@ public class ClusterConsonant implements Rule<Letter, Letter> {
                     next = next.getNext();
                 }
             }
-
             return next.getType() == Letter.TYPE.VOWEL ||
                     next.getType() == Letter.TYPE.FINAL_VOWEL ||
                     next.getType() == Letter.TYPE.FINAL_CONSONANT;

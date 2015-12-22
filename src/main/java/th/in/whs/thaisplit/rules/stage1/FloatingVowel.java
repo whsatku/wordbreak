@@ -14,6 +14,11 @@ public class FloatingVowel implements Rule<Letter, Letter> {
                 return true;
             }
         }
+        if(input.getLetter().equals("็")){
+            if(input.getNext() != null){
+                return true;
+            }
+        }
         return valid.contains(input);
     }
 
@@ -22,6 +27,9 @@ public class FloatingVowel implements Rule<Letter, Letter> {
         input.setType(Letter.TYPE.FLOATING_VOWEL);
         if(input.getPrevious().getType() == null){
             input.getPrevious().setType(Letter.TYPE.CONSONANT);
+        }
+        if(input.getLetter().equals("ั") || input.getLetter().equals("็")){
+            input.getNext().setType(Letter.TYPE.FINAL_CONSONANT);
         }
 
         return input;

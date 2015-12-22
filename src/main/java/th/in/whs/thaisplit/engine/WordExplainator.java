@@ -28,6 +28,9 @@ public class WordExplainator {
         for(Letter letter : stream){
             evaluator.evaluate(letter);
         }
+        for(Letter letter : stream){
+            evaluator.evaluate(letter);
+        }
         return stream;
     }
 
