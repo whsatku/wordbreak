@@ -1,5 +1,7 @@
 package th.in.whs.thaisplit.model;
 
+import th.in.whs.thaisplit.wordbreak.DictionaryTranslator;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -34,6 +36,11 @@ public class TextStream implements CharSequence, Iterable<Letter> {
             return null;
         }
         return tokens.get(index + 1);
+    }
+
+    public String word_meaning(){
+        DictionaryTranslator dictionaryTranslator = DictionaryTranslator.getInstance();
+        return dictionaryTranslator.search_meaning(this.toString());
     }
 
     @Override
