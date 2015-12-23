@@ -38,10 +38,21 @@ public class TextStream implements CharSequence, Iterable<Letter> {
         return tokens.get(index + 1);
     }
 
-    public String word_meaning(){
+    public String get_meaning(){
         DictionaryTranslator dictionaryTranslator = DictionaryTranslator.getInstance();
-        return dictionaryTranslator.search_meaning(this.toString());
+        System.out.print(this.get_word());
+        return dictionaryTranslator.search_meaning(this.get_word());
     }
+    public String get_word() {
+        StringBuilder sb = new StringBuilder();
+
+        for(Letter token : tokens){
+            sb.append(token.getLetter());
+        }
+
+        return sb.toString();
+    }
+
 
     @Override
     public String toString() {

@@ -8,7 +8,13 @@
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:3dlu:noGrow"/>
     <rowspec value="center:p:grow"/>
-    <rowspec value="center:p:noGrow"/>
+    <rowspec value="center:max(p;4px):noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="center:5px:noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:15px:noGrow"/>
+    <rowspec value="top:3dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
     <colspec value="fill:max(d;400px):grow"/>
     <constraints>
       <xy x="20" y="20" width="500" height="294"/>
@@ -66,10 +72,21 @@
           </component>
         </children>
       </grid>
+      <component id="48394" class="javax.swing.JLabel" binding="meaningLabel">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <text value=" "/>
+        </properties>
+      </component>
       <component id="1875c" class="javax.swing.JLabel" binding="explaination">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-          <forms top="0" left="0" bottom="20" right="0"/>
+          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-vert="false"/>
         </constraints>
         <properties>
           <horizontalAlignment value="0"/>

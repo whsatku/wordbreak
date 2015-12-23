@@ -45,4 +45,8 @@ public class DictionaryTranslator {
         }
         return "Meaning not found";
     }
+    public static void main(String[] args){
+        String print = dictionaryTranslator.search_meaning("ยา");
+        System.out.println(print);
+    }
 }

@@ -20,6 +20,7 @@ public class ExplainatorGUI extends JFrame {
     private JLabel explaination;
     private JPanel result;
     private JButton next;
+    private JLabel meaningLabel;
 
     private WordExplainator explainator = new WordExplainator();
     private TokenizeWordBreaker wordBreaker = new DictionaryWordBreaker();
@@ -56,6 +57,7 @@ public class ExplainatorGUI extends JFrame {
             return;
         }
         TextStream word = explainator.explain(wordIterator.next());
+        meaningLabel.setText(word.get_meaning());
         result.setVisible(false);
 
         result.removeAll();
